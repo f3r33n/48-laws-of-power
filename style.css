@@ -1,0 +1,511 @@
+/* ----------------------------------------------
+   🧙 Base Reset & Variables
+---------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #1f1f1f;
+  --text-primary: #f4e4bc;
+  --text-secondary: #d4af37;
+  --text-muted: #8a7a5a;
+  --accent-gold: #ffd700;
+  --accent-bronze: #cd7f32;
+  --shadow-glow: rgba(255, 215, 0, 0.3);
+  --shadow-dark: rgba(0, 0, 0, 0.7);
+  --gradient-gold: linear-gradient(135deg, #ffd700, #ffed4a, #f59e0b);
+  --gradient-bronze: linear-gradient(135deg, #cd7f32, #b8860b, #8b6914);
+}
+
+[data-theme='light'] {
+  --bg-primary: #faf8f3;
+  --bg-secondary: #f5f1e8;
+  --bg-card: #ffffff;
+  --text-primary: #2d2520;
+  --text-secondary: #8b6914;
+  --text-muted: #6b5b47;
+  --accent-gold: #b8860b;
+  --accent-bronze: #8b4513;
+  --shadow-glow: rgba(184, 134, 11, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Crimson Text', serif;
+  transition: all 0.4s ease;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ----------------------------------------------
+   📦 Container Layouts
+---------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--accent-gold);
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px var(--shadow-dark);
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
+}
+
+/* ----------------------------------------------
+   🌟 Hero Section
+---------------------------------------------- */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+.toggle-btn {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-gold);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  box-shadow: 0 4px 15px var(--shadow-glow);
+  transition: all 0.3s ease;
+}
+.toggle-btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  box-shadow: 0 8px 25px var(--shadow-glow);
+}
+
+.hero-box {
+  background: var(--bg-card);
+  border: 3px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 4rem 3rem;
+  box-shadow: 0 0 50px var(--shadow-glow), inset 0 0 30px rgba(255, 215, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  animation: heroFloat 6s ease-in-out infinite;
+}
+.hero-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  transform: rotate(-45deg);
+  animation: shimmer 8s linear infinite;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: var(--accent-gold);
+  text-shadow: 0 4px 8px var(--shadow-dark);
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.golden-ornament {
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-gold);
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px var(--shadow-glow);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-right: 3px solid var(--accent-gold);
+  border-bottom: 3px solid var(--accent-gold);
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+/* ----------------------------------------------
+   📜 Laws Section
+---------------------------------------------- */
+.laws-section {
+  background: var(--bg-secondary);
+  padding: 6rem 0;
+}
+
+.laws-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.law-box {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-bronze);
+  border-radius: 15px;
+  padding: 0.95rem;
+  box-shadow: 0 5px 20px var(--shadow-dark);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  min-height: 140px;
+}
+.law-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 15px 40px var(--shadow-dark), 0 0 30px var(--shadow-glow);
+}
+.law-number {
+  color: var(--accent-gold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.law-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.law-preview {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.read-more-btn {
+  background: var(--gradient-gold);
+  color: var(--bg-primary);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+.read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.law-expanded {
+  display: none;
+  margin-top: 2rem;
+  animation: expandIn 0.5s ease forwards;
+}
+.law-expanded.active {
+  display: block;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.close-btn:hover {
+  color: var(--accent-gold);
+}
+
+/* ----------------------------------------------
+   🧠 Infographics & Mind Map
+---------------------------------------------- */
+.infographics-section {
+  background: var(--bg-primary);
+  padding: 6rem 0;
+}
+
+.infographic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.timeline-container,
+.mind-map-container {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-bronze);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px var(--shadow-dark);
+  
+}
+
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--gradient-gold);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+.timeline-dot {
+  position: absolute;
+  left: -23px;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--shadow-glow);
+}
+
+/* Mind Map Node Styling */
+.mind-map {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.central-node {
+  width: 100px;
+  height: 100px;
+  background: var(--gradient-gold);
+  border-radius: 50%;
+  color: var(--bg-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px var(--shadow-glow);
+}
+.law-node {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-bronze);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  transform: rotate(var(--angle)) translateX(120px) rotate(calc(-1 * var(--angle)));
+  transition: all 0.3s ease;
+}
+.law-node:hover {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  transform: rotate(var(--angle)) translateX(120px) rotate(calc(-1 * var(--angle))) scale(1.1);
+}
+
+/* ----------------------------------------------
+   🔁 Carousel
+---------------------------------------------- */
+.carousel-section {
+  background: var(--bg-secondary);
+  padding: 6rem 0;
+}
+.wisdom-carousel {
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow-dark);
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.carousel-item {
+  min-width: 100%;
+  background: var(--bg-card);
+  padding: 3rem;
+  text-align: center;
+}
+.carousel-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+.carousel-source {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn.prev { left: -25px; }
+.carousel-btn.next { right: -25px; }
+
+/* ----------------------------------------------
+   🧾 About & Footer
+---------------------------------------------- */
+.about-section {
+  background: var(--bg-primary);
+  padding: 6rem 0;
+}
+.about-content {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+.about-text p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+.golden-separator {
+  width: 200px;
+  height: 3px;
+  background: var(--gradient-gold);
+  margin: 3rem auto;
+}
+.credits {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ----------------------------------------------
+   📱 Responsive
+---------------------------------------------- */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+  .hero-box { padding: 2rem 1.5rem; }
+  .laws-grid,
+  .infographic-grid {
+    grid-template-columns: 1fr;
+  }
+  .carousel-btn { display: none; }
+}
+
+/* ----------------------------------------------
+   🎬 Animations
+---------------------------------------------- */
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(-45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(-45deg); }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+@keyframes expandIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ───────────────────────────────────────
+   🔲 Power Grid (Replaces Mind Map)
+──────────────────────────────────────── */
+.power-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 1rem;
+  padding-top: 2rem;
+  justify-items: center;
+}
+
+.power-btn {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-bronze);
+  color: var(--text-primary);
+  font-weight: bold;
+  font-size: 0.85rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 15px var(--shadow-dark);
+  transition: all 0.3s ease;
+  font-family: 'Playfair Display', serif;
+}
+
+.power-btn:hover {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px var(--shadow-glow);
+}
+.timeline-desc {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+.timeline-item h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+.timeline-content {
+  max-width: 300px;
+}

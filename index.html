@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 48 Laws of Power</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+
+      <!-- Theme Toggle Button -->
+      <div class="theme-toggle">
+        <button id="themeToggle" class="toggle-btn" aria-label="Toggle Theme">
+          <span class="toggle-text">Light Mode</span>
+        </button>
+      </div>
+
+      <!-- Central Hero Box -->
+      <div class="hero-box" aria-labelledby="hero-title" role="banner">
+        <h1 class="hero-title" id="hero-title">The 48 Laws of Power</h1>
+        <p class="hero-subtitle">Master the art of strategy, influence, and timeless wisdom</p>
+        <div class="golden-ornament"></div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" id="scrollToLaws" role="button" aria-label="Scroll Down"></div>
+    </div>
+
+    <!-- Animated Hero Background -->
+    <div class="hero-background"></div>
+  </section>
+
+  <!-- Laws Section -->
+  <section class="laws-section" id="laws">
+    <div class="container">
+      <h2 class="section-title">The Sacred Laws</h2>
+      <div class="laws-grid" id="lawsGrid" role="list">
+        <!-- Law boxes will be rendered here by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Infographics Section -->
+  <section class="infographics-section" id="infographics">
+    <div class="container">
+      <h2 class="section-title">Wisdom Visualization</h2>
+
+      <div class="infographic-grid">
+        <!-- Timeline -->
+<div class="timeline" id="timeline">
+  <div class="timeline-item" data-year="356 BC">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Alexander the Great</h4>
+      <p><strong>Law 15:</strong> Crush Your Enemy Totally</p>
+      <p class="timeline-desc">After defeating Darius III, Alexander completely dismantled the Persian Empire, ensuring no rival power could rise again — a perfect example of total elimination of threats.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-year="49 BC">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Julius Caesar</h4>
+      <p><strong>Law 28:</strong> Enter Action with Boldness</p>
+      <p class="timeline-desc">Crossing the Rubicon with his army, Caesar boldly defied the Roman Senate — a decisive act that led to the rise of the Roman Empire under his rule.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-year="1469">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Niccolò Machiavelli</h4>
+      <p><strong>Law 46:</strong> Never Appear Too Perfect</p>
+      <p class="timeline-desc">In *The Prince*, Machiavelli warned rulers to avoid envy by appearing flawed — echoing this law centuries before Greene wrote it.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-year="1638">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Louis XIV</h4>
+      <p><strong>Law 34:</strong> Be Royal in Your Fashion</p>
+      <p class="timeline-desc">The Sun King elevated fashion, rituals, and etiquette at Versailles — turning royal elegance into a tool of psychological domination.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-year="1804">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Napoleon Bonaparte</h4>
+      <p><strong>Law 3:</strong> Conceal Your Intentions</p>
+      <p class="timeline-desc">He often masked his military campaigns with diplomacy — catching enemies off-guard, like in his surprise attack on Austria and Prussia.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item" data-year="1933">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h4>Franklin D. Roosevelt</h4>
+      <p><strong>Law 29:</strong> Plan All the Way to the End</p>
+      <p class="timeline-desc">His New Deal was meticulously staged to restore U.S. economic confidence, demonstrating the value of strategic foresight.</p>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Mind Map -->
+<!-- Power Grid (New Replacement for Mind Map) -->
+<div class="mind-map-container">
+  <h3 class="infographic-title">Laws Relationship Grid</h3>
+  <div class="power-grid" id="powerGrid">
+    <!-- JS will insert 48 Law buttons here -->
+  </div>
+</div>
+
+
+  </section>
+
+  <!-- Wisdom Carousel -->
+  <section class="carousel-section" id="carousel">
+    <div class="container">
+      <h2 class="section-title">Eternal Wisdom</h2>
+      <div class="wisdom-carousel" id="wisdomCarousel" aria-label="Quotes Carousel">
+        <div class="carousel-track" id="carouselTrack" role="list">
+          <!-- Quotes injected by script.js -->
+        </div>
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous Slide">‹</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Next Slide">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="section-title">About This Wisdom</h2>
+        <div class="about-text">
+          <p>Robert Greene's "The 48 Laws of Power" distills 3,000 years of political wisdom into essential lessons for modern strategists. This digital grimoire presents these timeless principles through an immersive, mystical experience that honors the depth and gravity of power's eternal dance.</p>
+          <p>Each law represents centuries of human ambition, triumph, and defeat—carefully studied patterns that reveal the hidden architecture of influence and control. Navigate this knowledge with wisdom, for power without wisdom is mere destruction.</p>
+        </div>
+        <div class="golden-separator"></div>
+        <div class="credits">
+          <p>A digital tribute to strategic wisdom • Crafted with reverence for timeless knowledge</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
