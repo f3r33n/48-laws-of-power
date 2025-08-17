@@ -804,3 +804,45 @@ window.addEventListener('scroll', () => {
   const bg = document.querySelector('.hero-background');
   if (bg) bg.style.transform = `translateY(${scrolled * -0.5}px)`;
 });
+// --- Custom Cursor Clock (Final Corrected Version) ---
+
+const cursorClock = document.getElementById('cursor-clock');
+const hourHand = cursorClock.querySelector('.hour-hand');
+const minuteHand = cursorClock.querySelector('.minute-hand');
+const secondHand = cursorClock.querySelector('.second-hand');
+
+// 1. Function to move the clock with the cursor
+window.addEventListener('mousemove', e => {
+    // We use requestAnimationFrame for smoother performance
+    requestAnimationFrame(() => {
+        cursorClock.style.left = `${e.clientX}px`;
+        cursorClock.style.top = `${e.clientY}px`;
+    });
+});
+
+// 2. Function to update the clock hands with corrected rotation
+function setClockHands() {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    // The "+ 90" offset has been removed for the correct orientation.
+    const secondsDegrees = ((seconds / 60) * 360);
+    secondHand.style.transform = `translateX(-50%) rotate(${secondsDegrees}deg)`;
+
+    const minutes = now.getMinutes();
+    // The "+ 90" offset has been removed.
+    const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6);
+    minuteHand.style.transform = `translateX(-50%) rotate(${minutesDegrees}deg)`;
+
+    const hours = now.getHours();
+    const hoursForClock = hours % 12 || 12;
+    // The "+ 90" offset has been removed.
+    const hoursDegrees = ((hoursForClock / 12) * 360) + ((minutes / 60) * 30);
+    hourHand.style.transform = `translateX(-50%) rotate(${hoursDegrees}deg)`;
+}
+
+// 3. Update the clock every second
+setInterval(setClockHands, 1000);
+
+// Set the hands immediately on load
+setClockHands();
