@@ -4,9 +4,10 @@ An interactive web experience inspired by Robert Greene's **The 48 Laws of Power
 
 
 ## 📸 Preview
-![Uploading law 444.png…]()
-![Uploading laws 222.png…]()
-![Uploading laws 1111.png…]()
+<img width="1280" height="720" alt="laws 1111" src="https://github.com/user-attachments/assets/7599c812-c576-48d2-946f-aff8de89bf3c" />
+<img width="1280" height="982" alt="laws 222" src="https://github.com/user-attachments/assets/f8793149-c341-4c32-8550-de84f3fc745e" />
+<img width="1562" height="993" alt="law 444" src="https://github.com/user-attachments/assets/e507064c-3010-4673-9643-d4b00234a2e0" />
+
 
 
 ## ✨ Features
